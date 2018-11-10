@@ -19,7 +19,27 @@
 </head>
 <body>
 
-    
+    <div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 37.5px; left: 15px;">
+        <textarea id='augument-text' style="position: absolute; padding: 0px; width: 1px; height: 1em; outline: currentcolor none medium;" autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" wrap="off"></textarea>
+    </div>
+
+    <div id="augument-area"></div>
+
+    <script>
+
+    $('#augument-area').click(function() {
+        $('#augument-text').focus();
+    });
+
+    $('#augument-text').on('keyup', function() {
+        let text = $('#augument-text').val();
+
+        text = text.replace(/\n/g, '<br>');
+        text = text.replace(/aaa/g, '<b>aaa</b>');
+
+        $('#augument-area').html(text);
+    })
+    </script>
 
 </body>
 </html>
